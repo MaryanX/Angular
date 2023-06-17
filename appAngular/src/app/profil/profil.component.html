@@ -1,0 +1,218 @@
+    <div class="container my-5">
+      <h2>Mon profil</h2>
+        <section class="module">
+            <div class="d-flex justify-content-around">
+              <!-- COLONNE LEFT -->
+                <div class="col-3 left">
+                  <div class="card text-center">
+                    <div class="nameUser">
+                      <p>Toto tata</p>
+                    </div>
+                    <div class="">
+                      <img src="../../assets/img/user01.jpg" height="200px" alt="">
+                    </div>
+                  </div>
+                  <div class="card mt-3">
+                    <ul class="list-group list-group-flush">
+                      <li (click)="ShowDiv('profil')" class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
+                        <span class="mx-2"><i class="bi bi-person-workspace"></i></span>
+                        <h6 class="mb-0">
+                          Mon profil
+                        </h6>
+                      </li>
+                      <li (click)="ShowDiv('upProfil')" class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
+                        <span class="mx-2"><i class="bi bi-arrow-up-square"></i></span>
+                        <h6 class="mb-0">
+                          Modifier mon profil
+                        </h6>
+                      </li>
+                      <li (click)="ShowDiv('paramProfil')" #divite class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
+                        <span class="mx-2"><i class="bi bi-radioactive"></i></span>
+                        <h6 class="mb-0">
+                          Paramétres
+                        </h6>
+                      </li>
+                      <li (click)="ShowDiv('msgProfil')" class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
+                        <span class="mx-2"><i class="bi bi-chat-right-dots"></i></span>
+                        <h6 class="mb-0">
+                          Mes Messages
+                        </h6>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
+                        <span class="mx-2"></span>
+                        <h6 class="mb-0">
+                          Website
+                        </h6>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+
+              <!-- COLONNE RIGHT -->
+              <div  class="col-8 right" >
+                <div *ngIf="currDiv == 'profil'">
+                  <div class="card ">
+                    <div class="nameUser">
+                      <p class="">Mon Profil</p>
+                    </div>
+                    <div class="container bootstrap snippets bootdey">
+                      <div class="panel-body inf-content">
+                        <div class="row">
+                            <div class="col">
+                                <strong>Information</strong><br>
+                                <div class="table-responsive">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr class="">
+                                            <td class="tdColor">
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-asterisk ">
+                                                      <i class="bi bi-bookmark-star-fill"></i>
+                                                    </span>
+                                                    ID
+                                                </strong>
+                                            </td>
+                                            <td class="">
+                                                123456789
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-user  ">
+                                                      <i class="bi bi-code"></i>
+                                                    </span>
+                                                    Pseudo
+                                                </strong>
+                                            </td>
+                                            <td class="tdColor">
+                                                Bootdey
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdColor">
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-cloud ">
+                                                      <i class="bi bi-person-vcard"></i>
+                                                    </span>
+                                                    Nom
+                                                </strong>
+                                            </td>
+                                            <td class="">
+                                                Bootstrap
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                  <span class="glyphicon glyphicon-cloud ">
+                                                    <i class="bi bi-person-vcard-fill"></i>
+                                                  </span>
+                                                    Prénom
+                                                </strong>
+                                            </td>
+                                            <td class="tdColor">
+                                                bootnipets
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdColor">
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-eye-open ">
+                                                      <i class="bi bi-person-bounding-box"></i>
+                                                    </span>
+                                                    Role
+                                                </strong>
+                                            </td>
+                                            <td class="">
+                                                Admin
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-envelope ">
+                                                      <i class="bi bi-envelope-at-fill"></i>
+                                                    </span>
+                                                    Email
+                                                </strong>
+                                            </td>
+                                            <td class="tdColor">
+                                                noreply@email.com
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tdColor">
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-calendar ">
+                                                      <i class="bi bi-calendar3-week"></i>
+                                                    </span>
+                                                    Créer
+                                                </strong>
+                                            </td>
+                                            <td class="">
+                                                20 jul 20014
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-calendar ">
+                                                      <i class="bi bi-calendar3-week-fill"></i>
+                                                    </span>
+                                                    Modifier
+                                                </strong>
+                                            </td>
+                                            <td class="tdColor">
+                                                 20 jul 20014 20:00:00
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="currDiv == 'upProfil'">
+                  <div class="card">
+                    <div class="nameUser">
+                      <p class="">Modifier mon Profil</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="currDiv == 'paramProfil'">
+                  <div class="card">
+                    <div class="nameUser">
+                      <p class="">Paramétre</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="currDiv == 'msgProfil'">
+                  <div class="card">
+                    <div class="nameUser">
+                      <p class="">Mes Messages</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <ng-template [ngIf]="heroes" [ngIfElse]="loading">
+                 <div class="hero-list">
+                  ...
+                 </div>
+                </ng-template>
+
+                <ng-template #loading>
+                 <div>Loading...</div>
+                </ng-template> -->
+
+
+
+
+            </div>
+        </section>
+    </div>

@@ -1,0 +1,14 @@
+.media-body h5 {
+    font-size: 15px;
+    letter-spacing: 0px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.media-body h5 a {
+    color: #555;
+}
+
+.media-body h5 a:hover {
+    color: #4782d3;
+}

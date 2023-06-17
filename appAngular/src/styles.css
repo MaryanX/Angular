@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+body{background-color: #F6EDEF;}
+a{color:#fff;}
+h1, h2, h3 {padding:1rem 0;}
+h1{font-size: 2.5rem;}
+h2{background-color: #8D0023; padding:10px;color:#fff;border-radius: 6px;margin-bottom:2rem;}
+footer{min-height: 300px;}
+img{object-fit: cover;}
+
+.btnAtr{background-color: #5E0018;padding:5px 10px;color:#fff;border-radius:6px;text-decoration: none;border: 1px solid #fff;}
+.cp{cursor: pointer;}
+/* Plus foncé au plus clair */
+.color-0 { color: #3B0110 }
+.color-1 { color: #480012 }
+.color-2 { color: #5E0017 }
+.color-3 { color: #8D0023 }
+.color-4 { color: #C00030 }
+
+/* color site plus clair */
+.color-0-0 { color: #F6EDEF } /* GREEY clair */
+.color-0-1 { color: #EBB4C2 }  /* Rosé */
+.color-0-2 { color: #F0CCD5 } /* Rose gris  */
+.color-0-3 { color: #EAD8DD }
+.color-0-4 { color: #D5C0C5 }
+
+.bgcolor-0 { background-color: #3B0110 }
+.bgcolor-1 { background-color: #480012 }
+.bgcolor-2 { background-color: #5E0017 }
+.bgcolor-3 { background-color: #8D0023 }
+.bgcolor-4 { background-color: #C00030 }

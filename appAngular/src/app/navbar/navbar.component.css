@@ -1,0 +1,6 @@
+.navbar-nav{display: flex;width: 100%;flex-direction: row;}
+.nav li{color:#fff;padding:10px;outline:none;list-style: none;font-size: 1.2rem;font-size: Monospace;}
+.nav li a{margin-left:7px;cursor: pointer;list-style: none;font-style: none;color:none;text-decoration: none;font-family: 'Barlow', sans-serif;}
+.active-link{color:#C00030;}
+.active-ico{color:#fff;transform: scale(1.2);}
+.active-link::before{color:#C00030; background-color: #3B0110;}

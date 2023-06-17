@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <h2>{{ title }}</h2>
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col md-4 my-2" *ngFor="let art of articles">
+      <div class="card" >
+       <img width="200px" height="300px" src="{{ art.artImage }}" class="card-img-top" alt="...">
+       <div class="card-body">
+         <h5 class="card-title">{{ art.artName }}</h5>
+         <p class="card-text">{{ art.artDescrip }}</p>
+         <a [routerLink]="['/articles',  art.artId ]" class="btnAtr">Voir</a>
+       </div>
+      </div>
+    </div>
+   </div>
+</div>
