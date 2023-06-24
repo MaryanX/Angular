@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import { ProfilComponent}  from './profil/profil.component';
 import { ArticlesComponent}  from './articles/articles.component';
 import { IndexComponent} from './index/index.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
-import { PageArticleComponent } from './page-article/page-article.component';
-
+import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 
 
 const routes: Routes = [
@@ -15,7 +14,7 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent},
   { path: 'profil', component: ProfilComponent },
   { path: 'articles', component: ArticlesComponent },
-  { path: 'articles/:id', component: PageArticleComponent },
+  { path: 'articles/:id', component: ArticleDetailComponent },
   { path: 'contact', component: ContactComponent },
 
 ];

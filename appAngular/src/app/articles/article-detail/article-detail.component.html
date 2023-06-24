@@ -1,0 +1,9 @@
+
+<div class="card" *ngIf="article">
+  <img width="600px" [src]="article.artImage" class="" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ article.artName }}</h5>
+    <p class="card-text">{{ article.artDescrip }}</p>
+    <a href="#" class="btn btn-primary">{{ article.artDate }}</a>
+  </div>
+</div>

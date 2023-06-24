@@ -1,9 +1,21 @@
-<div class="container my-5">
+<div class="container my-5" >
   <h2>{{ title }}</h2>
-  <div class="row row-cols-1 row-cols-md-3">
-    <div class="col md-4 my-2" *ngFor="let art of articles">
+  <div class="my-2">
+    <div class="row-column">
+      <div class="col-md-4 text-left">
+        <span>Rechercher un article : </span>
+        <b>{{ articlefiltre }}</b>
+      </div>
+      <div class="col-md-4 ">
+        <input type="text" name="search" class="w-100" [(ngModel)]="articlefiltre">
+      </div>
+    </div>
+
+  </div>
+  <div class="row row-cols-1 row-cols-md-3" >
+    <div class="col md-4 my-2" *ngFor="let art of filteredArticles">
       <div class="card" >
-       <img width="200px" height="300px" src="{{ art.artImage }}" class="card-img-top" alt="...">
+       <img width="200px" height="300px" [src]="art.artImage" class="card-img-top" alt="...">
        <div class="card-body">
          <h5 class="card-title">{{ art.artName }}</h5>
          <p class="card-text">{{ art.artDescrip }}</p>

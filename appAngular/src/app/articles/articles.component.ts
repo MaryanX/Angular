@@ -1,68 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IArticle } from './artInter';
+import { ArticlesService } from './articles.service';
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css']
 })
-export class ArticlesComponent {
+export class ArticlesComponent implements OnInit{
 
   public title = "Liste articles";
-
   maDate = new Date();
+  public articles: IArticle[] = [];
 
-  public articles: any[] = [
-  {
-    artId: 1,
-    artName: 'Les datas',
-    artDescrip: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Vivamus nec enim sed nisi interdum efficitur. Sed nec congue metus. Sed condimentum id orci sit amet finibus.
-    Aenean pharetra enim et tellus dapibus pulvinar. Mauris iaculis eu turpis placerat feugiat. Duis posuere, massa et
-    cursus sagittis, mi metus convallis justo.`,
-    artImage: 'assets/img/data.jpg',
-    artDate: this.maDate
-  },
-  {
-    artId: 2,
-    artName: 'Les Technologies',
-    artDescrip: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Vivamus nec enim sed nisi interdum efficitur. Sed nec congue metus. Sed condimentum id orci sit amet finibus.
-    Aenean pharetra enim et tellus dapibus pulvinar. Mauris iaculis eu turpis placerat feugiat. Duis posuere, massa et
-    cursus sagittis, mi metus convallis justo.`,
-    artImage: 'assets/img/tech.jpg',
-    artDate: this.maDate
-  },
-  {
-    artId: 3,
-    artName: 'Design',
-    artDescrip: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Vivamus nec enim sed nisi interdum efficitur. Sed nec congue metus. Sed condimentum id orci sit amet finibus.
-    Aenean pharetra enim et tellus dapibus pulvinar. Mauris iaculis eu turpis placerat feugiat. Duis posuere, massa et
-    cursus sagittis, mi metus convallis justo.`,
-    artImage: 'assets/img/design.jpg',
-    artDate: this.maDate
-  },
-  {
-    artId: 4,
-    artName: 'Designer',
-    artDescrip: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Vivamus nec enim sed nisi interdum efficitur. Sed nec congue metus. Sed condimentum id orci sit amet finibus.
-    Aenean pharetra enim et tellus dapibus pulvinar. Mauris iaculis eu turpis placerat feugiat. Duis posuere, massa et
-    cursus sagittis, mi metus convallis justo.`,
-    artImage: 'assets/img/designer.jpg',
-    artDate: this.maDate
-  },
-  {
-    artId: 5,
-    artName: 'Social Media',
-    artDescrip: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Vivamus nec enim sed nisi interdum efficitur. Sed nec congue metus. Sed condimentum id orci sit amet finibus.
-    Aenean pharetra enim et tellus dapibus pulvinar. Mauris iaculis eu turpis placerat feugiat. Duis posuere, massa et
-    cursus sagittis, mi metus convallis justo.`,
-    artImage: 'assets/img/social.jpg',
-    artDate: this.maDate
+  private _articlefiltre = "data";
+  public filteredArticles: IArticle[] = [];
+
+  constructor(private articlesService: ArticlesService){}
+
+  ngOnInit(){
+    this.articlesService.getArticles().subscribe({
+      next: articles => {
+        this.articles = articles,
+        this.filteredArticles = this.articles;
+      },
+    })
+    this.articlefiltre = 'data';
+  }
+
+  public get articlefiltre(): string {
+    return this._articlefiltre;
+  }
+
+  public set articlefiltre(filter: string) {
+    this._articlefiltre = filter;
+    this.filteredArticles = this.articlefiltre ? this.filterArticles(this.articlefiltre): this.articles;
+  }
+
+  private filterArticles(crit: string): IArticle[]{
+    crit = crit.toLocaleLowerCase();
+
+    const res = this.articles.filter(
+      (article: IArticle) => article.artName.toLocaleLowerCase().indexOf(crit) !== -1
+    )
+    return res;
   }
 
 
-]
+
 }
