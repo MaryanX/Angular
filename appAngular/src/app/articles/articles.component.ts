@@ -1,31 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IArticle } from './artInter';
-import { ArticlesService } from './articles.service';
+import { ArticlesService } from '../../_services/articles.service';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
+import { OrderByPipe } from '../../_pipes/order-by.pipe';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.css']
+  styleUrls: ['./articles.component.css'],
+  animations: [
+    trigger('headA', [
+      state('inactive', style({
+        width:'0%',
+        display: 'none'
+      })),
+      state('active', style({
+        width:'100%',
+        display: 'block'
+      })),
+      transition('active <=> inactive', animate('500ms 400ms ease-in'))
+    ])
+  ],
+
 })
 export class ArticlesComponent implements OnInit{
 
   public title = "Liste articles";
   maDate = new Date();
   public articles: IArticle[] = [];
-
   private _articlefiltre = "data";
   public filteredArticles: IArticle[] = [];
+  headS = 'inactive';
 
-  constructor(private articlesService: ArticlesService){}
+  constructor(private articlesService: ArticlesService, public dialog: MatDialog){}
+
 
   ngOnInit(){
     this.articlesService.getArticles().subscribe({
-      next: articles => {
+      next: (articles: IArticle[]) => {
         this.articles = articles,
         this.filteredArticles = this.articles;
+
       },
     })
-    this.articlefiltre = 'data';
+    this.articlefiltre = '';
+
   }
 
   public get articlefiltre(): string {
@@ -45,6 +68,25 @@ export class ArticlesComponent implements OnInit{
     )
     return res;
   }
+
+  toto()
+  {
+    console.log('x');
+    this.headS = (this.headS === 'inactive' ? 'active' : 'inactive');
+    
+  }
+
+  // Dialog
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width:'30%'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
 
 

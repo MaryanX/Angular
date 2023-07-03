@@ -1,0 +1,73 @@
+<div class="container-fluid bgcolor-0 top">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="">
+        <ul class="nav navbar-nav">
+          <li class="">
+            <div class="d-flex align-items-center">
+              <a  class="link" routerLink="/index"  routerLinkActive="active-link" >
+                <button mat-fab extended color="warn">
+                  <mat-icon>home</mat-icon>
+                    Accueil
+                </button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center">
+              <a  class="link" routerLink="/articles" routerLinkActive="active-link" >
+                <button mat-fab extended color="warn">
+                  <mat-icon>assignment</mat-icon>
+                    Articles
+                </button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center">
+              <a  class="link" routerLink="/contact" routerLinkActive="active-link" >
+                <button mat-fab extended color="warn">
+                  <mat-icon>contact_mail</mat-icon>
+                    Contact
+                </button>
+              </a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="" >
+        <!-- <p>Bienvenue {{name}}</p> -->
+          <div class="d-flex" *ngIf="userProfil ; else: logOut ">
+            <div class="">
+              <a  class="link"  routerLink="/user" routerLinkActive="active-link" >
+                <button mat-mini-fab  color="primary">
+                  <mat-icon>account_box</mat-icon>
+                </button>
+              </a>
+            </div>
+            <div class="" >
+              <a (click)="goLogout()" class="link">
+                <button mat-mini-fab  aria-label="Example icon button with a menu icon">
+                  <mat-icon color="" >power_off</mat-icon>
+                </button>
+             </a>
+            </div>
+          </div>
+
+
+          <ng-template class="" #logOut>
+            <a   class="link" routerLink="/connexion" alt="Deconnexion" >
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                <mat-icon >power</mat-icon>
+              </button>
+           </a>
+          </ng-template>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- <mat-slide-toggle (click)="goDark()">Dark Mode</mat-slide-toggle> -->
+
+</div>

@@ -1,0 +1,103 @@
+<div class="card">
+  <div class="header mat-warn mat-toolbar">
+    <h2>{{ title | titlecase }}</h2>
+  </div>
+  <div class="body">
+    <div class="container justify-content-center border-left border-right">
+        <div class="d-flex pt-3 pb-2" *ngFor="let coms of icom">
+          <div class="w-100 py-2" >
+              <div class="second">
+                <div class="d-flex">
+                  <div class="">
+                    <div class="">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <div class="col-2">
+                    <div class=" text-center">
+                      <img  class="rounded-circle" width="60px" height="60px" src="assets/img/avatar.jpg">
+                    </div>
+
+                  </div>
+                  <div class="col ml-2 px-3">
+                    <div class="">
+                      <p class="text">{{ coms.comText | titlecase }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-end">
+                  <div class="col-2 d-flex justify-content-center">
+                    <div class="">
+                      <button mat-mini-fab color="primary" aria-label="icon">
+                        <mat-icon>thumb_up</mat-icon>
+                      </button>
+                    </div>
+                    <div class="mx-1">
+                      <button mat-mini-fab color="accent" aria-label="icon">
+                        <mat-icon>thumb_down</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col px-3 text-end">
+                    <div class="">
+                      <span class="">{{ coms.comDate }}</span>
+                      <h5 class="m-0">{{ (coms.comName.length>15) ? (coms.comName | titlecase | slice:0:15)+'...' : (coms.comName | titlecase) }}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <mat-paginator [length]="10" [pageSize]="5" (pageChange)="handlePageChange($event)" aria-label="Select page"></mat-paginator>
+        </div>
+  </div>
+</div>
+<div class="card">
+  <div class="header mat-warn mat-toolbar">
+    <h2>Poster un commentaire</h2>
+  </div>
+  <div class="body">
+    <div class="">
+      <div class="alert alert-success" *ngIf="success" role="alert">
+        Votre commentaire a bien été posté !
+      </div>
+      <div class="alert alert-danger" *ngIf="danger" role="alert">
+        Votre commentaire n'a pas été posté !
+      </div>
+    </div>
+    <div class="comment-form">
+      <div mat-dialog-content class="form">
+        <form [formGroup]="form" (ngSubmit)="addCom()" >
+          <mat-form-field >
+            <mat-label>Pseudo</mat-label>
+              <input matInput  formControlName="comName" #nameIn>
+            <mat-icon matSuffix>fingerprint</mat-icon>
+          </mat-form-field>
+          <div [ngClass]="nameIn.value.length < 3 ? 'show' : 'hide'" class="alert alert-danger px-2 py-1" role="alert">
+          Veuillez entrer un pseudo valide ! (3 à 100 caractéres)
+          </div>
+          <mat-form-field>
+            <mat-label>Entrer votre email</mat-label>
+              <input matInput formControlName="comMail" #mailIn value="@exemple.fr" required>
+            <mat-icon matSuffix>alternate_email</mat-icon>
+          </mat-form-field>
+          <div [ngClass]="mailIn.value.length < 5 ? 'show' : 'hide'" class="alert alert-danger px-2 py-1" role="alert">
+          Veuillez entrer un email valide ! (5 à 100 caractéres)
+          </div>
+          <mat-form-field class="fill">
+            <mat-label>Commentaire</mat-label>
+              <textarea matInput formControlName="comText" #textIn required></textarea>
+            <mat-icon matSuffix>comment</mat-icon>
+          </mat-form-field>
+          <div [ngClass]="textIn.value.length < 5 && textIn.value.length > 10  ? 'show' : 'hide'" class="alert alert-danger px-2 py-1" role="alert">
+          Veuillez entrer un texte valide ! (5 à 300 caractéres)
+          </div>
+            <button mat-raised-button color="warn" type="submit" >Poster</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

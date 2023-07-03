@@ -1,1 +1,29 @@
-<p>contact works!</p>
+<app-navbar></app-navbar>
+  <div class="container my-5">
+    <div class="bgcolor-01 pt-5 w-50 mx-auto">
+      <div class="text-center ">
+        <h1>Formulaire de Contact</h1>
+      </div>
+      <form class="" action="index.html" method="post">
+        <div class="p-5">
+          <mat-form-field>
+            <mat-label>Votre email</mat-label>
+            <input matInput value="@exemple.fr" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Choix</mat-label>
+            <mat-select>
+              <mat-option value="one">Demande</mat-option>
+              <mat-option value="two">Autres</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Votre message</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" >Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<app-footer></app-footer>

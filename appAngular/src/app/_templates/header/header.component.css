@@ -1,0 +1,3 @@
+.fond-txt{border-radius: 12px;color:#fff;padding: 2rem;}
+.header{background-image:url('../../../assets/img/bg01.jpg');padding: 4rem 0;background-size: cover;background-position: top;width: 100%;}
+h1::after{font-size: 0.8rem;}

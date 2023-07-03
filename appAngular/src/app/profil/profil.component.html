@@ -1,49 +1,67 @@
-    <div class="container my-5">
-      <h2>Mon profil</h2>
-        <section class="module">
+<app-navbar></app-navbar>
+    <div class="container">
+        <div class="bgcolor-0 text-light px-3 py-2 my-3 title">
+          <button mat-fab color="primary" aria-label="">
+            <mat-icon>account_box</mat-icon>
+          </button>
+        </div>
+
+        <section class="module my-5">
             <div class="d-flex justify-content-around">
               <!-- COLONNE LEFT -->
                 <div class="col-3 left">
                   <div class="card text-center">
-                    <div class="nameUser">
+                    <!-- <div class="nameUser">
                       <p>Toto tata</p>
+                    </div> -->
+                    <div class="header mat-primary mat-toolbar">
+                        <h2 class="m-0 p-2">{{ userInfo.firstName | titlecase   }} {{ userInfo.lastName }}</h2>
                     </div>
-                    <div class="">
-                      <img src="../../assets/img/user01.jpg" height="200px" alt="">
+                    <div class="py-4">
+                      <img src="../../assets/img/{{userInfo.imgProfil}}" height="200px" alt="">
                     </div>
                   </div>
                   <div class="card mt-3">
+                    <!-- <div class="bgcolor-0  d-flex justify-content-start align-items-center">
+                      <h4 class="">Mon profil</h4>
+                      <button (click)="ShowDiv('profil')" class="">
+                        <span class="mx-2">
+                          <mat-icon>account_box</mat-icon>
+                        </span>
+                      </button>
+                    </div> -->
+
                     <ul class="list-group list-group-flush">
+
                       <li (click)="ShowDiv('profil')" class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
-                        <span class="mx-2"><i class="bi bi-person-workspace"></i></span>
-                        <h6 class="mb-0">
-                          Mon profil
-                        </h6>
+                        <mat-icon color="primary">account_box</mat-icon>
+                        <h4 class="mb-0 mx-3">Mon profil</h4>
                       </li>
                       <li (click)="ShowDiv('upProfil')" class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
-                        <span class="mx-2"><i class="bi bi-arrow-up-square"></i></span>
-                        <h6 class="mb-0">
+                        <mat-icon color="primary">backup</mat-icon>
+                        <h4 class="mb-0 mx-3">
                           Modifier mon profil
-                        </h6>
+                        </h4>
                       </li>
                       <li (click)="ShowDiv('paramProfil')" #divite class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
-                        <span class="mx-2"><i class="bi bi-radioactive"></i></span>
-                        <h6 class="mb-0">
+                        <mat-icon color="primary">settings</mat-icon>
+                        <h4 class="mb-0 mx-3">
                           Paramétres
-                        </h6>
+                        </h4>
                       </li>
                       <li (click)="ShowDiv('msgProfil')" class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
-                        <span class="mx-2"><i class="bi bi-chat-right-dots"></i></span>
-                        <h6 class="mb-0">
+                        <mat-icon color="primary"> message</mat-icon>
+                        <h4 class="mb-0 mx-3">
                           Mes Messages
-                        </h6>
+                        </h4>
                       </li>
-                      <li class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
+
+                      <!-- <li class="list-group-item d-flex justify-content-start align-items-center flex-wrap cp">
                         <span class="mx-2"></span>
-                        <h6 class="mb-0">
+                        <h4 class="mb-0 mx-3">
                           Website
-                        </h6>
-                      </li>
+                        </h4>
+                      </li> -->
 
                     </ul>
                   </div>
@@ -53,120 +71,76 @@
               <div  class="col-8 right" >
                 <div *ngIf="currDiv == 'profil'">
                   <div class="card ">
-                    <div class="nameUser">
-                      <p class="">Mon Profil</p>
+                    <div class="header mat-primary mat-toolbar text-center p-3">
+                      <p class="h4 text-light">Mon Profil</p>
                     </div>
-                    <div class="container bootstrap snippets bootdey">
+                    <div class="my-3 bootstrap snippets bootdey">
                       <div class="panel-body inf-content">
+                        <div class="text-center">
+                          <h3 class="mx-auto ">Informations Utilisateur</h3>
+                        </div>
                         <div class="row">
                             <div class="col">
-                                <strong>Information</strong><br>
+
                                 <div class="table-responsive">
-                                <table class="table table-user-information">
+                                <table class="table table-striped">
                                     <tbody>
-                                        <tr class="">
-                                            <td class="tdColor">
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-asterisk ">
-                                                      <i class="bi bi-bookmark-star-fill"></i>
-                                                    </span>
-                                                    ID
-                                                </strong>
+                                        <tr>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>stars</mat-icon>
+                                              <strong class="mx-3">ID</strong>
                                             </td>
-                                            <td class="">
-                                                123456789
-                                            </td>
+                                            <td>{{ userInfo.id }}</td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-user  ">
-                                                      <i class="bi bi-code"></i>
-                                                    </span>
-                                                    Pseudo
-                                                </strong>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>record_voice_over</mat-icon>
+                                              <strong class="mx-3">Pseudo</strong>
                                             </td>
-                                            <td class="tdColor">
-                                                Bootdey
-                                            </td>
+                                            <td>{{ userInfo.pseudo }}</td>
                                         </tr>
                                         <tr>
-                                            <td class="tdColor">
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-cloud ">
-                                                      <i class="bi bi-person-vcard"></i>
-                                                    </span>
-                                                    Nom
-                                                </strong>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>record_voice_over</mat-icon>
+                                              <strong class="mx-3">Nom de Famille</strong>
                                             </td>
-                                            <td class="">
-                                                Bootstrap
-                                            </td>
+                                            <td>{{ userInfo.lastName }}</td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <strong>
-                                                  <span class="glyphicon glyphicon-cloud ">
-                                                    <i class="bi bi-person-vcard-fill"></i>
-                                                  </span>
-                                                    Prénom
-                                                </strong>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>record_voice_over</mat-icon>
+                                              <strong class="mx-3">Prénom</strong>
                                             </td>
-                                            <td class="tdColor">
-                                                bootnipets
+                                            <td>{{ userInfo.firstName }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>contacts</mat-icon>
+                                              <strong class="mx-3">Role</strong>
                                             </td>
+                                            <td>User</td>
                                         </tr>
                                         <tr>
-                                            <td class="tdColor">
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-eye-open ">
-                                                      <i class="bi bi-person-bounding-box"></i>
-                                                    </span>
-                                                    Role
-                                                </strong>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon> contact_mail</mat-icon>
+                                              <strong class="mx-3">Email</strong>
                                             </td>
-                                            <td class="">
-                                                Admin
-                                            </td>
+                                            <td>{{ userInfo.email }}</td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-envelope ">
-                                                      <i class="bi bi-envelope-at-fill"></i>
-                                                    </span>
-                                                    Email
-                                                </strong>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>create</mat-icon>
+                                              <strong class="mx-3">Compte créer</strong>
                                             </td>
-                                            <td class="tdColor">
-                                                noreply@email.com
-                                            </td>
+                                            <td>{{ userInfo.createdDate }}</td>
                                         </tr>
                                         <tr>
-                                            <td class="tdColor">
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-calendar ">
-                                                      <i class="bi bi-calendar3-week"></i>
-                                                    </span>
-                                                    Créer
-                                                </strong>
+                                            <td class="d-flex align-items-center">
+                                              <mat-icon>update</mat-icon>
+                                              <strong class="mx-3">Compte modifier</strong>
                                             </td>
-                                            <td class="">
-                                                20 jul 20014
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-calendar ">
-                                                      <i class="bi bi-calendar3-week-fill"></i>
-                                                    </span>
-                                                    Modifier
-                                                </strong>
-                                            </td>
-                                            <td class="tdColor">
-                                                 20 jul 20014 20:00:00
-                                            </td>
+                                            <td>{{ userInfo.updateDate }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -179,40 +153,28 @@
                 </div>
                 <div *ngIf="currDiv == 'upProfil'">
                   <div class="card">
-                    <div class="nameUser">
-                      <p class="">Modifier mon Profil</p>
+                    <div class="header mat-primary mat-toolbar text-center p-3">
+                      <p class="h4 text-light">Modifier mon Profil</p>
                     </div>
                   </div>
                 </div>
                 <div *ngIf="currDiv == 'paramProfil'">
                   <div class="card">
-                    <div class="nameUser">
-                      <p class="">Paramétre</p>
+                    <div class="header mat-primary mat-toolbar text-center p-3">
+                      <p class="h4 text-light">Paramétre</p>
                     </div>
                   </div>
                 </div>
                 <div *ngIf="currDiv == 'msgProfil'">
                   <div class="card">
-                    <div class="nameUser">
-                      <p class="">Mes Messages</p>
+                    <div class="header mat-primary mat-toolbar text-center p-3">
+                      <p class="h4 text-light">Mes Messages</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- <ng-template [ngIf]="heroes" [ngIfElse]="loading">
-                 <div class="hero-list">
-                  ...
-                 </div>
-                </ng-template>
-
-                <ng-template #loading>
-                 <div>Loading...</div>
-                </ng-template> -->
-
-
-
-
             </div>
         </section>
     </div>
+<app-footer></app-footer>

@@ -1,0 +1,48 @@
+<section class="vh-100 bgcolor-0" style="">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="header mat-warn mat-toolbar">
+              <h2 class="mb-5">Connexion</h2>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <mat-form-field class="example-full-width">
+                 <mat-label>Email</mat-label>
+                 <input type="email" matInput formControlName="email" placeholder="pat@example.com" required>
+                 <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
+                   Veuillez entrer un email valide !
+                 </mat-error>
+                 <mat-error *ngIf="loginForm.hasError('required')">
+                   Email est <strong>requis</strong>
+                 </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Entrer votre mot de passe</mat-label>
+                  <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+
+                <div class="d-flex justify-content-around">
+                  <button mat-raised-button color="primary" type="submit" >Connexion</button>
+                  <button mat-raised-button color="primary" routerLink="/register" >Pas de compte ?</button>
+                </div>
+
+
+            <hr class="my-4">
+          </form>
+          <div >
+            <a routerLink="/index">
+              <p class="text-primary">Page d'accueil</p>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

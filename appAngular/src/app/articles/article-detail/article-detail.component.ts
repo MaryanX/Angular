@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IArticle } from '.././artInter';
-import { ArticlesService } from '../articles.service';
+import { ArticlesService } from '../../../_services/articles.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.css']
+  styleUrls: ['./article-detail.component.css'],
 })
 export class ArticleDetailComponent implements OnInit {
 
   public article: IArticle | undefined = <IArticle>{};
+  bodyText = 'This text can be updated in modal 1';
 
   constructor(
     private route: ActivatedRoute,
-    private articlesService: ArticlesService
+    private router: Router,
+    private articlesService: ArticlesService,
+    // protected modalService: ModalService
   ){}
 
   ngOnInit(): void {
@@ -24,9 +27,13 @@ export class ArticleDetailComponent implements OnInit {
 
     this.articlesService.getArticles().subscribe((articles: IArticle[]) =>
     {
-      this.article = articles.find(art => art.artId === id);
+      this.article = articles.find(a => a.artId === id);
       console.log(this.article);
     });
+  }
+  public backToArticle(): void
+  {
+    this.router.navigate(['/articles']);
   }
 
 }

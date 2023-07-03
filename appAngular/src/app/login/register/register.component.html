@@ -1,0 +1,73 @@
+<section class="vh-100 bgcolor-0" style="">
+	<div class="container py-5 h-100">
+			<div class="row h-100">
+			<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="card">
+
+	          <div *ngIf="error">
+	            <div class="alert alert-danger">
+	              {{ error }}
+	            </div>
+
+	          </div>
+						<div class="card-body text-center p-5">
+							<div class="header mat-warn mat-toolbar">
+								<h2 class="mb-5">Créer un compte</h2>
+							</div>
+							<div class="m-sm-4">
+								<form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+	                <div class="form-group">
+	                  <mat-form-field>
+	                    <mat-label>Entrer votre nom</mat-label>
+	                    <input matInput placeholder="nom" value="titi" formControlName="lastName"  />
+	                  </mat-form-field>
+
+									</div>
+	                <div class="form-group">
+	                  <mat-form-field>
+	                    <mat-label>Entrer votre prenom</mat-label>
+	                    <input matInput placeholder="prenom" value="azaz" formControlName="firstName"  />
+	                  </mat-form-field>
+									</div>
+	                <div class="form-group">
+	                      <mat-form-field >
+	                      <mat-label>Entrer un pseudo</mat-label>
+	                      <input matInput placeholder="pseudo" value="toto55" formControlName="pseudo" class="form-control"  />
+	                    </mat-form-field>
+	                </div>
+									<div class="form-group">
+
+	                  <mat-form-field>
+	                    <mat-label>Entrer votre Email</mat-label>
+	                    <input matInput placeholder="pat@example.com" value="pat@example.com" formControlName="email" />
+	                  </mat-form-field>
+									</div>
+									<div class="form-group">
+	                  <mat-form-field>
+	                    <mat-label>Entrer votre mot de passe</mat-label>
+	                    <input matInput type="password" formControlName="password" value="toto" class="form-control" />
+	                    <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+	                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+	                    </button> -->
+	                    <!-- <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+	                      <div *ngIf="password.errors.['required']">Mot de passe is required</div>
+	                      <div *ngIf="password.errors.['minlength']">Mot de passe 6 caractéres</div>
+	                    </div> -->
+
+	                  </mat-form-field>
+									</div>
+
+
+									<div class="d-flex justify-content-around">
+	                  <button mat-raised-button color="primary" routerLink="/connexion"  >Connexion</button>
+	                  <button mat-raised-button color="primary" type="submit" >S'enregistrer</button>
+	                </div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -2,17 +2,25 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-body{background-color: #F6EDEF;}
+
+
+/* HTML */
+html, body { height: 100%; background-color: #f4f4f4;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 a{color:#fff;}
-h1, h2, h3 {padding:1rem 0;}
 h1{font-size: 2.5rem;}
-h2{background-color: #8D0023; padding:10px;color:#fff;border-radius: 6px;margin-bottom:2rem;}
+h2{font-size: 1.5rem;font-family: Roboto, "Helvetica Neue";}
+h6{font-size: 1rem;}
 footer{min-height: 300px;}
 img{object-fit: cover;}
-
-.btnAtr{background-color: #5E0018;padding:5px 10px;color:#fff;border-radius:6px;text-decoration: none;border: 1px solid #fff;}
+p{font-family: Roboto, "Helvetica Neue";}
+mat-form-field {width: 100%;margin: auto;}
+/* DIV title H */
+.title {border-radius: .55rem;}
 .cp{cursor: pointer;}
-/* Plus foncé au plus clair */
+
+/* Plus clair au plus foncé  */
 .color-0 { color: #3B0110 }
 .color-1 { color: #480012 }
 .color-2 { color: #5E0017 }
@@ -26,8 +34,28 @@ img{object-fit: cover;}
 .color-0-3 { color: #EAD8DD }
 .color-0-4 { color: #D5C0C5 }
 
-.bgcolor-0 { background-color: #3B0110 }
+.bgcolor-00 { background-color: #000 }
+.bgcolor-01 { background-color: #fff }
+.bgcolor-004 { background-color: #0000004d; }
+.bgcolor-005 { background-color: #00000080; }
+
+/* RED DARK */
+/* .bgcolor-0 { background-color: #3B0110 }
 .bgcolor-1 { background-color: #480012 }
 .bgcolor-2 { background-color: #5E0017 }
 .bgcolor-3 { background-color: #8D0023 }
-.bgcolor-4 { background-color: #C00030 }
+.bgcolor-4 { background-color: #C00030 } */
+
+/* ORANGE  */
+.bgcolor-0 { background-color: #FFC49E }
+.bgcolor-1 { background-color: #FFAF7B }
+.bgcolor-2 { background-color: #FF9E5E }
+.bgcolor-3 { background-color: #FF8E44 }
+.bgcolor-4 { background-color: #FF7E2A }
+
+/* green */
+/* .bgcolor-0 { background-color: #E9FED4 }
+.bgcolor-1 { background-color: #BCDD9A }
+.bgcolor-2 { background-color: #D0F3AB }
+.bgcolor-3 { background-color: #B0FA65 }
+.bgcolor-4 { background-color: #8FFB21 } */

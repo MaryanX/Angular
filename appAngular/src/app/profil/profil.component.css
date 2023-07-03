@@ -1,9 +1,14 @@
 .card {background: #fff;transition: .5s;border: 0;margin-bottom: 30px;padding:20px;
     border-radius: .55rem;position: relative;width: 100%;box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);}
-.card img{border-radius: 50%;height: 200px;width: 200px;}
+/*
 .nameUser{color:#fff;background-color: #8D0023;padding:5px 15px;border-radius: 6px;margin-bottom: 1rem;}
 .nameUser p{margin:0;font-size: 1.2rem;font-weight: bold;}
 i{font-size: 1.5rem;}
 .table-responsive span{margin-right:10px;}
 .tdColor{background-color: #f0f0f0;}
+td{vertical-align: middle;} */
+.card img{border-radius: 50%;height: 200px;width: 200px;}
+h4:hover{text-decoration: underline;}
+.container{margin:6rem auto 8rem auto;}
 td{vertical-align: middle;}
+i.bi{font-size: 1.5rem;}

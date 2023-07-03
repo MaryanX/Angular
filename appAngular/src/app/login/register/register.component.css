@@ -1,0 +1,10 @@
+h2 {padding: 1rem;}
+.header{border-radius: 12px;}
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}

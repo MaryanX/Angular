@@ -1,9 +1,40 @@
 
-<div class="card" *ngIf="article">
-  <img width="600px" [src]="article.artImage" class="" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ article.artName }}</h5>
-    <p class="card-text">{{ article.artDescrip }}</p>
-    <a href="#" class="btn btn-primary">{{ article.artDate }}</a>
+<div class="container my-5 p-5">
+  <div class="card" *ngIf="article">
+    <img src="{{ article.artImage }}" width="" height="250px" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ article.artName }}</h5>
+      <p class="card-text">{{ article.artDescrip }}</p>
+      <p class="card-text"><small class="text-muted">Ajouté le {{ article.artDate }}</small></p>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-outline-primary" name="button" (click)="backToArticle()">
+        Retour aux articles
+      </button>
+    </div>
   </div>
 </div>
+<jw-modal id="modal-1">
+    <h1>Error</h1>
+    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>
+    <!-- <button (click)="modalService.close();">Close</button> -->
+</jw-modal>
+
+
+   <!-- <div>
+       <div>
+           <h1>Angular 14 - Modal Popup Example</h1>
+           <p>{{bodyText}}</p>
+           <button (click)="modalService.open('modal-1')">Open Modal 1</button>
+           <button (click)="modalService.open('modal-2')">Open Modal 2</button>
+       </div>
+
+
+       <jw-modal id="modal-2">
+           <h1>A tall modal popup</h1>
+           <p style="padding-bottom: 1500px;">Close with the button below or by clicking the background.</p>
+           <button (click)="modalService.close();">Close</button>
+       </jw-modal>
+
+
+   </div> -->

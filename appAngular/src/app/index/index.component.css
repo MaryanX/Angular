@@ -1,6 +1,6 @@
-.card {background: #fff;transition: .5s;border: 0;margin-bottom: 30px;
+.card {background: #fff;border: 0;margin-bottom: 30px;
     border-radius: .55rem;position: relative;width: 100%;box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);}
-.card .body {padding: 0 20px 20px 20px;font-weight: 400;}
+.card .body {padding: 2rem;font-weight: 400;}
 .card .search{padding:20px;}
 .search span{padding:10px;border-top-right-radius: 0;border-bottom-right-radius: 0;}
 .card .body li a{padding: 20px;color:#8D0023;margin:3px;}
@@ -8,4 +8,8 @@
 .card .header {padding:20px 20px 0 20px;position: relative;box-shadow: none;}
 .right-box .categories-clouds li {display: inline-block;margin-bottom: 5px;}
 .right-box .categories-clouds li a {display: block;border: 1px solid;padding: 6px 10px;border-radius: 3px;}
-.form-group{margin:3px auto;}
+.header{margin-bottom: 2rem;}
+.categories-clouds a {margin: 0.3rem;color:#4b4b4b;}
+.file-input {
+  display: none;
+}
